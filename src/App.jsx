@@ -323,7 +323,7 @@ export default function App() {
           to { opacity: 1; transform: translateY(0); }
         }
         .hero-name {
-          font-family: var(--font-display); font-size: clamp(3.5rem, 8vw, 7rem);
+          font-family: var(--font-display); font-size: clamp(2.5rem, 7.2vw, 5.8rem);
           font-weight: 800; line-height: 0.95; letter-spacing: -0.03em;
           color: var(--text); margin-bottom: 24px;
           animation: fadeSlideUp 0.9s 0.1s cubic-bezier(.16,1,.3,1) both;
@@ -662,6 +662,7 @@ export default function App() {
           .section-title { margin-bottom: 16px; }
           .nav-inner { padding: 0 22px; }
           .hero { padding: 110px 22px 70px; }
+          .hero-name { font-size: clamp(2.15rem, 12vw, 3.8rem); line-height: 0.98; }
           .project-header, .project-body, .project-footer { padding-left: 20px; padding-right: 20px; }
           .project-footer { align-items: flex-start; }
           .project-deployed { margin-left: 0; }
