@@ -3,6 +3,8 @@ import {
   Globe,
   User,
   Mail,
+  Phone,
+  FileText,
   MapPin,
   ExternalLink,
   Code2,
@@ -22,8 +24,10 @@ const personalInfo = {
   sub: "Third-year CS Undergraduate · AI Integration · Product Builder",
   location: "Chennai, India",
   email: "nis380639@gmail.com",
+  phone: "+91 8122597249",
   github: "https://github.com/NishanthKamalakkannan",
   linkedin: "https://www.linkedin.com/in/nishanth-kamalakkannan-b44b89327/",
+  resume: "/resume.pdf",
 }
 
 const skills = [
@@ -989,13 +993,19 @@ export default function App() {
                   <User size={16} />
                   LinkedIn
                 </a>
+                <a href={personalInfo.resume} download className="btn-secondary">
+                  <FileText size={16} />
+                  Resume
+                </a>
               </div>
             </div>
             <div className="contact-items reveal reveal-delay-2">
               {[
                 { icon: Mail, label: "Email", value: personalInfo.email, href: `mailto:${personalInfo.email}` },
+                { icon: Phone, label: "Phone", value: personalInfo.phone, href: "tel:+918122597249" },
                 { icon: Globe, label: "GitHub", value: "NishanthKamalakkannan", href: personalInfo.github },
                 { icon: User, label: "LinkedIn", value: "nishanth-kamalakkannan", href: personalInfo.linkedin },
+                { icon: FileText, label: "Resume", value: "Download PDF", href: personalInfo.resume, download: true },
                 { icon: MapPin, label: "Location", value: personalInfo.location, href: "#" },
               ].map((item, i) => {
                 const Icon = item.icon
@@ -1005,6 +1015,7 @@ export default function App() {
                     href={item.href}
                     target={item.href.startsWith("http") ? "_blank" : undefined}
                     rel="noopener noreferrer"
+                    download={item.download}
                     className="contact-item"
                   >
                     <div className="contact-item-icon">
@@ -1032,8 +1043,16 @@ export default function App() {
             { icon: Globe, href: personalInfo.github },
             { icon: User, href: personalInfo.linkedin },
             { icon: Mail, href: `mailto:${personalInfo.email}` },
-          ].map(({ icon: Icon, href }, i) => (
-            <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="social-icon">
+            { icon: FileText, href: personalInfo.resume, download: true },
+          ].map(({ icon: Icon, href, download }, i) => (
+            <a
+              key={i}
+              href={href}
+              target={href.startsWith("http") ? "_blank" : undefined}
+              rel="noopener noreferrer"
+              download={download}
+              className="social-icon"
+            >
               <Icon size={17} />
             </a>
           ))}
